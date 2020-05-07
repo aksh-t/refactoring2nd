@@ -25,6 +25,7 @@ module.exports = function statement(invoice, plays) {
         if (perf.audience > 20) {
           thisAmount += 10000 + 500 * (perf.audience - 20);
         }
+        break;
       default:
         throw new Error(`unknown type: ${play.type}`);
     }
