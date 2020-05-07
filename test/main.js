@@ -1,4 +1,4 @@
-import { statement } from "../src/main";
+const statement = require("../src/main");
 
 const plays = {
   "hamlet": { name: "Hamlet", type: "tragedy" },
