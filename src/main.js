@@ -22,6 +22,10 @@ module.exports = function statement(invoice, plays) {
     return result;
   }
 
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
+  }
+
   let totalAmount = 0;
   let volumeCredits = 0;
   let result = `Statement for ${invoice.customer}\n`;
@@ -33,8 +37,7 @@ module.exports = function statement(invoice, plays) {
   }).format;
 
   for (let perf of invoice.performances) {
-    const play = plays[perf.playID];
-
+    const play = playFor(perf);
     let thisAmount = amountFor(perf, play);
 
     // ボリューム特典のポイントを加算
