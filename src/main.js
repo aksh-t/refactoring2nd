@@ -35,6 +35,8 @@ module.exports = function statement(invoice, plays) {
       return thisAmount;
     }
 
+    let thisAmount = amountFor(perf, play);
+
     // ボリューム特典のポイントを加算
     volumeCredits += Math.max(perf.audience - 30, 0);
     // 喜劇の時は10人につき、さらにポイントを加算
