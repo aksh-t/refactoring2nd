@@ -13,7 +13,7 @@ module.exports = function statement(invoice, plays) {
     const play = plays[perf.playID];
     let thisAmount = 0;
 
-    function amountFor() {
+    function amountFor(perf, play) {
       switch (play.type) {
         case "tragedy":
           thisAmount = 40000;
