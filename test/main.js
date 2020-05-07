@@ -1,33 +1,19 @@
+const fs = require("fs");
+const path = require("path");
 const statement = require("../src/main");
 
-const plays = {
-  "hamlet": { name: "Hamlet", type: "tragedy" },
-  "as-like": { name: "As You Like It", type: "comedy" },
-  "othello": { name: "Othello", type: "tragedy" }
-}
+const srcPath = path.join(__dirname, "../src");
 
-// FIXME: TypeError: invoice.performances is not iterable
-const invoice = {
-  customer: "BigCo",
-  performances: [
-    {
-      playID: "hamlet",
-      audience: 55
-    },
-    {
-      playID: "as-like",
-      audience: 35
-    },
-    {
-      playID: "othello",
-      audience: 40
-    }
-  ]
-}
+const playsJson = fs.readFileSync(path.join(srcPath, "plays.json"), { encoding: "utf8" });
+const plays = JSON.parse(playsJson);
+
+const invoicesJson = fs.readFileSync(path.join(srcPath, "invoices.json"), { encoding: "utf8" });
+const invoices = JSON.parse(invoicesJson);
+const invoice = invoices[0];
 
 
 function testStatement() {
-  const result = statement(plays, invoice);
+  const result = statement(invoice, plays);
   console.log(result);
 }
 
