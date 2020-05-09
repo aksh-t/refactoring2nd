@@ -24,7 +24,7 @@ exports.htmlStatement = function htmlStatement(invoice, plays) {
 
 function renderHtml(data) {
   let result = `<h1>Statement for ${data.customer}</h1>\n`;
-  result += "<tabel>\n";
+  result += "<table>\n";
   result += "<tr><th>play</th><th>seats</th><th>cost</th></tr>";
   for (let perf of data.performances) {
     result += `  <tr><td>${perf.play.name}</td><td>${perf.audience}</td>`;
