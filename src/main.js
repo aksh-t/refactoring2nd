@@ -67,3 +67,6 @@ module.exports = function statement(invoice, plays) {
     return result;
   }
 };
+
+function renderPlainText(invoice, plays) {
+};
