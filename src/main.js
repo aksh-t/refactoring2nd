@@ -87,4 +87,12 @@ function renderPlainText(data, invoice, plays) {
       minimumFractionDigits: 2,
     }).format(aNumber / 100);
   }
+
+  // p30 で追加しているが、呼び出し元がなく意図不明
+  function totalAmount(data) {
+    return data.performances.reduce((total, p) => total + p.amount, 0);
+  }
+  function totalVolumeCredits(data) {
+    return data.performances.reduce((total, p) => total + p.volumeCredits, 0);
+  }
 };
