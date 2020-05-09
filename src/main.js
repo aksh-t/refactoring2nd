@@ -2,6 +2,7 @@ module.exports = function statement(invoice, plays) {
   const statementData = {};
   statementData.customer = invoice.customer;
   statementData.performances = invoice.performances.map(enrichPerformance);
+  statementData.totalAmount = totalAmount(statementData);
   return renderPlainText(statementData, invoice, plays);
 
   function enrichPerformance(aPerformance) {
@@ -44,6 +45,14 @@ module.exports = function statement(invoice, plays) {
     if ("comedy" === aPerformance.play.type) result += Math.floor(aPerformance.audience / 5);
     return result;
   }
+
+  function totalAmount(data) {
+    let result = 0;
+    for (let perf of data.performances) {
+      result += perf.amount;
+    }
+    return result;
+  }
 };
 
 function renderPlainText(data, invoice, plays) {
@@ -54,7 +63,7 @@ function renderPlainText(data, invoice, plays) {
       perf.audience
       } seats)\n`;
   }
-  result += `Amount owed is ${usd(totalAmount())}\n`;
+  result += `Amount owed is ${usd(data.totalAmount)}\n`;
   result += `You earned ${totalVolumeCredits()} credits\n`;
   return result;
 
@@ -72,13 +81,5 @@ function renderPlainText(data, invoice, plays) {
       volumeCredits += perf.volumeCredits;
     }
     return volumeCredits;
-  }
-
-  function totalAmount() {
-    let result = 0;
-    for (let perf of data.performances) {
-      result += perf.amount;
-    }
-    return result;
   }
 };
