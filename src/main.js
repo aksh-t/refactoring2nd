@@ -1,7 +1,17 @@
 module.exports = function statement(invoice, plays) {
+  let result = `Statement for ${invoice.customer}\n`;
+  for (let perf of invoice.performances) {
+    // 注文の内訳を出力
+    result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${
+      perf.audience
+      } seats)\n`;
+  }
+  result += `Amount owed is ${usd(totalAmount())}\n`;
+  result += `You earned ${totalVolumeCredits()} credits\n`;
+  return result;
+
   function amountFor(aPerformance) {
     let result = 0;
-
     switch (playFor(aPerformance).type) {
       case "tragedy":
         result = 40000;
@@ -56,17 +66,4 @@ module.exports = function statement(invoice, plays) {
     }
     return result;
   }
-
-  let result = `Statement for ${invoice.customer}\n`;
-
-  for (let perf of invoice.performances) {
-    // 注文の内訳を出力
-    result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${
-      perf.audience
-      } seats)\n`;
-  }
-
-  result += `Amount owed is ${usd(totalAmount())}\n`;
-  result += `You earned ${totalVolumeCredits()} credits\n`;
-  return result;
 };
