@@ -52,19 +52,11 @@ function createStatementData(invoice, plays) {
   }
 
   function totalAmount(data) {
-    let result = 0;
-    for (let perf of data.performances) {
-      result += perf.amount;
-    }
-    return result;
+    return data.performances.reduce((total, p) => total + p.amount, 0);
   }
 
   function totalVolumeCredits(data) {
-    let volumeCredits = 0;
-    for (let perf of data.performances) {
-      volumeCredits += perf.volumeCredits;
-    }
-    return volumeCredits;
+    return data.performances.reduce((total, p) => total + p.volumeCredits, 0);
   }
 };
 
@@ -86,13 +78,5 @@ function renderPlainText(data, invoice, plays) {
       currency: "USD",
       minimumFractionDigits: 2,
     }).format(aNumber / 100);
-  }
-
-  // p30 で追加しているが、呼び出し元がなく意図不明
-  function totalAmount(data) {
-    return data.performances.reduce((total, p) => total + p.amount, 0);
-  }
-  function totalVolumeCredits(data) {
-    return data.performances.reduce((total, p) => total + p.volumeCredits, 0);
   }
 };
