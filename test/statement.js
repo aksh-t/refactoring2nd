@@ -14,7 +14,7 @@ const invoice = invoices[0];
 
 
 function testStatement() {
-  const result = statement(invoice, plays);
+  const result = statement.statement(invoice, plays);
   const expect =
     `Statement for BigCo
   Hamlet: $650.00 (55 seats)
@@ -26,4 +26,20 @@ You earned 47 credits
   assert.equal(result, expect);
 }
 
+function testHtmlStatement() {
+  const result = statement.htmlStatement(invoice, plays);
+  const expect =
+    `<h1>Statement for BigCo</h1>
+<table>
+<tr><th>play</th><th>seats</th><th>cost</th></tr>  <tr><td>Hamlet</td><td>55</td><td>$650.00</td></tr>
+  <tr><td>As You Like It</td><td>35</td><td>$580.00</td></tr>
+  <tr><td>Othello</td><td>40</td><td>$500.00</td></tr>
+</table>
+<p>Amount owed is <em>$1,730.00</em></p>
+<p>You earned <em>47</em> credits</p>
+`;
+  assert.equal(result, expect);
+}
+
 testStatement();
+testHtmlStatement();

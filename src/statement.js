@@ -1,7 +1,7 @@
 // 今のところnodeで直接実行したいので、テキストのES2015形式ではなくCommonJS形式でexport/importする
 const createStatementData = require("../src/createStatementData");
 
-module.exports = function statement(invoice, plays) {
+exports.statement = function statement(invoice, plays) {
   return renderPlainText(createStatementData(invoice, plays));
 };
 
@@ -18,7 +18,7 @@ function renderPlainText(data) {
   return result;
 };
 
-function htmlStatement(invoice, plays) {
+exports.htmlStatement = function htmlStatement(invoice, plays) {
   return renderHtml(createStatementData(invoice, plays));
 };
 
