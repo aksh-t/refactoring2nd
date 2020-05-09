@@ -29,6 +29,9 @@ module.exports = function createStatementData(invoice, plays) {
   }
 };
 
+function createPerformanceCalculator(aPerformance, aPlay) {
+  return new PerformanceCalculator(aPerformance, aPlay);
+}
 class PerformanceCalculator {
   constructor(aPerformance, aPlay) {
     this.performance = aPerformance;
@@ -63,8 +66,4 @@ class PerformanceCalculator {
     if ("comedy" === this.play.type) result += Math.floor(this.performance.audience / 5);
     return result;
   }
-}
-
-function createPerformanceCalculator(aPerformance, aPlay) {
-  return new PerformanceCalculator(aPerformance, aPlay);
 }
