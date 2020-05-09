@@ -1,7 +1,7 @@
 const assert = require('assert').strict;
 const fs = require("fs");
 const path = require("path");
-const statement = require("../src/main");
+const statement = require("../src/statement");
 
 const srcPath = path.join(__dirname, "../src");
 
