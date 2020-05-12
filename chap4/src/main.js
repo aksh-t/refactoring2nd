@@ -44,7 +44,7 @@ exports.Province = class Province {
   get satisfiedDemand() {
     return Math.min(this._demand, this.totalProduction);
   }
-}
+};
 
 exports.Producer = class Producer {
   constructor(aProvince, data) {
@@ -65,7 +65,7 @@ exports.Producer = class Producer {
     this._province.totalProduction += newProduction - this.amount;
     this._production = newProduction;
   }
-}
+};
 
 exports.sampleProvinceData = function sampleProvinceData() {
   return {
@@ -78,4 +78,4 @@ exports.sampleProvinceData = function sampleProvinceData() {
     demand: 30,
     price: 20
   };
-}
+};
