@@ -1,5 +1,5 @@
 var assert = require('assert');
-const {Province, sampleProvinceData} = require("../src/main");
+const { Province, sampleProvinceData } = require("../src/main");
 
 describe('province', function () {
   it('shortfall', function () {
