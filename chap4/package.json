@@ -1,0 +1,26 @@
+{
+  "name": "refactoring2nd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aksh-t/refactoring2nd.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/aksh-t/refactoring2nd/issues"
+  },
+  "homepage": "https://github.com/aksh-t/refactoring2nd#readme",
+  "devDependencies": {
+    "mocha": "^7.1.2"
+  }
+}
