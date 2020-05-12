@@ -46,7 +46,8 @@ exports.Province = class Province {
   }
 };
 
-exports.Producer = class Producer {
+// memo: exportsした要素は同じモジュール(ファイル)でも不可視になる？っぽい
+class Producer {
   constructor(aProvince, data) {
     this._province = aProvince;
     this._cost = data.cost;
