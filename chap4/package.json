@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/aksh-t/refactoring2nd#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^7.1.2"
   }
 }
