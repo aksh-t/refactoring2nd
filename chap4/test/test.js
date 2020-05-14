@@ -5,7 +5,10 @@ var expect = require('chai').expect;
 const { Province, sampleProvinceData } = require("../src/main");
 
 describe('province', function () {
-  const asia = new Province(sampleProvinceData()); // これはやってはいけない
+  let asia;
+  beforeEach(function () {
+    asia = new Province(sampleProvinceData());
+  });
   it('shortfall', function () {
     // assert.equal(asia.shortfall, 5);
     // asia.shortfall.should.equal(5);
