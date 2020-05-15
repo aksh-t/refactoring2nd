@@ -1,9 +1,7 @@
 module.exports = function printOwing(invoice) {
   let outstanding = 0;
 
-  console.log("***********************");
-  console.log("**** Customer Owes ****");
-  console.log("***********************");
+  printBanner();
 
   // 未払い金の計算(calculate outstanding)
   for (const o of invoice.orders) {
@@ -19,6 +17,12 @@ module.exports = function printOwing(invoice) {
   console.log(`amount: ${outstanding}`);
   console.log(`due: ${invoice.dueDate.toLocaleDateString()}`);
 };
+
+function printBanner() {
+  console.log("***********************");
+  console.log("**** Customer Owes ****");
+  console.log("***********************");
+}
 
 // see: https://martinfowler.com/bliki/ClockWrapper.html
 class Clock {
