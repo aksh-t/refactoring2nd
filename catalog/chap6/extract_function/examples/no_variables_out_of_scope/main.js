@@ -12,19 +12,19 @@ module.exports = function printOwing(invoice) {
   const today = Clock.today;
   invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
 
-  printDatails();
-
-  function printDatails() {
-    console.log(`name: ${invoice.customer}`);
-    console.log(`amount: ${outstanding}`);
-    console.log(`due: ${invoice.dueDate.toLocaleDateString()}`);
-  }
+  printDatails(invoice.customer, outstanding, invoice.dueDate);
 };
 
 function printBanner() {
   console.log("***********************");
   console.log("**** Customer Owes ****");
   console.log("***********************");
+}
+
+function printDatails(customer, outstanding, dueDate) {
+  console.log(`name: ${customer}`);
+  console.log(`amount: ${outstanding}`);
+  console.log(`due: ${dueDate.toLocaleDateString()}`);
 }
 
 // see: https://martinfowler.com/bliki/ClockWrapper.html
