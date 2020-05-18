@@ -1,8 +1,6 @@
 module.exports = function printOwing(invoice) {
-  let outstanding = 0;
-
   printBanner();
-  
+
   // 未払い金の計算(calculate outstanding)
   let outstanding = 0;
   for (const o of invoice.orders) {
@@ -28,6 +26,14 @@ function printDatails(invoice, outstanding) {
 function recordDueDate(invoice) {
   const today = Clock.today;
   invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
+}
+
+function calculateOutstanding(invoice) {
+  let outstanding = 0;
+  for (const o of invoice.orders) {
+    outstanding += o.amount;
+  }
+  return outstanding;
 }
 
 // see: https://martinfowler.com/bliki/ClockWrapper.html
