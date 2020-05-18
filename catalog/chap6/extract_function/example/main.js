@@ -1,7 +1,7 @@
 module.exports = function printOwing(invoice) {
   printBanner();
 
-  let outstanding = calculateOutstanding(invoice);
+  const outstanding = calculateOutstanding(invoice);
   recordDueDate(invoice);
   printDatails(invoice, outstanding);
 };
@@ -24,11 +24,11 @@ function recordDueDate(invoice) {
 }
 
 function calculateOutstanding(invoice) {
-  let outstanding = 0;
+  let result = 0;
   for (const o of invoice.orders) {
-    outstanding += o.amount;
+    result += o.amount;
   }
-  return outstanding;
+  return result;
 }
 
 // see: https://martinfowler.com/bliki/ClockWrapper.html
