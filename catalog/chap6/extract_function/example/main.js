@@ -12,7 +12,7 @@ module.exports = function printOwing(invoice) {
   const today = Clock.today;
   invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
 
-  printDatails(invoice.customer, outstanding, invoice.dueDate);
+  printDatails(invoice, outstanding);
 };
 
 function printBanner() {
@@ -21,10 +21,10 @@ function printBanner() {
   console.log("***********************");
 }
 
-function printDatails(customer, outstanding, dueDate) {
-  console.log(`name: ${customer}`);
+function printDatails(invoice, outstanding) {
+  console.log(`name: ${invoice.customer}`);
   console.log(`amount: ${outstanding}`);
-  console.log(`due: ${dueDate.toLocaleDateString()}`);
+  console.log(`due: ${invoice.dueDate.toLocaleDateString()}`);
 }
 
 // see: https://martinfowler.com/bliki/ClockWrapper.html
