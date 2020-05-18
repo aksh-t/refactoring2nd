@@ -8,10 +8,7 @@ module.exports = function printOwing(invoice) {
     outstanding += o.amount;
   }
 
-  // 締め日の記録(record due date)
-  const today = Clock.today;
-  invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
-
+  recordDueDate(invoice);
   printDatails(invoice, outstanding);
 };
 
@@ -25,6 +22,11 @@ function printDatails(invoice, outstanding) {
   console.log(`name: ${invoice.customer}`);
   console.log(`amount: ${outstanding}`);
   console.log(`due: ${invoice.dueDate.toLocaleDateString()}`);
+}
+
+function recordDueDate(invoice) {
+  const today = Clock.today;
+  invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
 }
 
 // see: https://martinfowler.com/bliki/ClockWrapper.html
