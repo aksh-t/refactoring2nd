@@ -1,4 +1,4 @@
-function rating(aDriver) {
+module.exports = function rating(aDriver) {
   return moreThanFiveLaterDeliveries(aDriver) ? 2 : 1;
 }
 
