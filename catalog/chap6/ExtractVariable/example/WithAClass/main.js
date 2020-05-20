@@ -1,4 +1,4 @@
-class Order {
+module.exports = class Order {
   constructor(aRecord) {
     this._data = aRecord;
   }
