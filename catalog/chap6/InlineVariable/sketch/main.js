@@ -1,4 +1,3 @@
 module.exports = function isOver1K(anOrder) {
-  let basePrice = anOrder.basePrice;
-  return (basePrice > 1000);
+  return (anOrder.basePrice > 1000);
 }
