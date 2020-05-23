@@ -1,8 +1,8 @@
 const expect = require('chai').expect;
-const circum = require('./main');
+const circumference = require('./main');
 
-describe('circum', function () {
+describe('circumference', function () {
   it('', function () {
-    expect(circum(1)).to.equal(6.283185307179586);
+    expect(circumference(1)).to.equal(6.283185307179586);
   });
 });
