@@ -7,7 +7,7 @@ module.exports = class Book {
   get reservations() {
     return this._reservations;
   }
-  zz_addReservation(customer, isPriority) {
+  addReservation(customer, isPriority) {
     assert(isPriority === true || isPriority === false);
     this._reservations.push(customer);
   }
