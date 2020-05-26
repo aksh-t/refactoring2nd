@@ -3,6 +3,6 @@ const spaceship = require('./main');
 
 describe('spaceship', () => {
   it('', () => {
-    expect(spaceship.owner).to.deep.equal({ firstName: "Martin", lastName: "Fowler" });
+    expect(spaceship.owner).to.deep.equal({ firstName: "Rebecca", lastName: "Parsons" });
   });
 });
