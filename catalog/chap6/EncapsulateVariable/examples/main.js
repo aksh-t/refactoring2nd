@@ -1,8 +1,7 @@
 let defaultOwner = { firstName: "Martin", lastName: "Fowler" };
+defaultOwner = { firstName: "Rebecca", lastName: "Parsons" };
 
 const spaceship = {};
 spaceship.owner = defaultOwner;
-
-defaultOwner = { firstName: "Rebecca", lastName: "Parsons" };
 
 module.exports = spaceship;
