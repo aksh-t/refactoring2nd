@@ -1,6 +1,4 @@
-let defaultOwner = { firstName: "Martin", lastName: "Fowler" };
-function getDafaultOwner() { return defaultOwner; }
-function setDefaultOwner(arg) { defaultOwner = arg; }
+const { getDafaultOwner, setDefaultOwner } = require('./defaultOwner');
 
 setDefaultOwner({ firstName: "Rebecca", lastName: "Parsons" });
 
