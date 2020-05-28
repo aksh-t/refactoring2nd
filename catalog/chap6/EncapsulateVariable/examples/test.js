@@ -18,6 +18,7 @@ describe('defaultOwner', () => {
     assert.equal("Fowler", owner1.lastName, "when set");
     const owner2 = defaultOwner();
     owner2.lastName = "Parsons";
-    assert.equal("Parsons", owner1.lastName, "after change owner2"); // これでいい？
+    assert.equal("Fowler", owner1.lastName, "owner1 after change owner2");
+    assert.equal("Parsons", owner2.lastName, "owner2 after change owner2");
   });
 });
