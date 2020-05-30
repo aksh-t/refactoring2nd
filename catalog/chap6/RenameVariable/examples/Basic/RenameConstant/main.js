@@ -2,5 +2,5 @@ const companyName = "Acme Gooseberries";
 const cpyNm = companyName;
 
 exports.getCompanyName = function getCompanyName() {
-  return cpyNm;
+  return companyName;
 };
