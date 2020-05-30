@@ -1,6 +1,6 @@
-let tpHd = "untitled";
-function title() { return tpHd; }
-function setTitle(arg) { tpHd = arg; }
+let _title = "untitled";
+function title() { return _title; }
+function setTitle(arg) { _title = arg; }
 
 exports.titleElement = function titleElement() {
   let result = "";
