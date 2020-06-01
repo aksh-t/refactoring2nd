@@ -23,6 +23,6 @@ function readingsOutsideRange(station, min, max, range) {
   return station.readings.filter(r => r.temp < min || r.temp > max);
 }
 
-// memo: JSではこの対応は要らないが、言語によっては必要になる場合がある
-const alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling, null);
+const range = new NubmerRange(operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
+const alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling, range);
 module.exports = alerts;
