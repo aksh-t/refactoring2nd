@@ -19,10 +19,10 @@ class NubmerRange {
   get max() { return this._data.max; }
 }
 
-function readingsOutsideRange(station, min, range) {
-  return station.readings.filter(r => r.temp < min || r.temp > range.max);
+function readingsOutsideRange(station, range) {
+  return station.readings.filter(r => r.temp < range.min || r.temp > range.max);
 }
 
 const range = new NubmerRange(operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
-const alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, range);
+const alerts = readingsOutsideRange(station, range);
 module.exports = alerts;
