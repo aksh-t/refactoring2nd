@@ -21,7 +21,7 @@ class NubmerRange {
 }
 
 function readingsOutsideRange(station, range) {
-  return station.readings.filter(r => r.temp < range.min || r.temp > range.max);
+  return station.readings.filter(r => !range.contains(r.temp));
 }
 
 const range = new NubmerRange(operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
