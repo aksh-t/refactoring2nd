@@ -27,7 +27,7 @@ exports.client2 = function client2() {
 exports.client3 = function clinet3() {
   const rawReading = acquireReading();
   const aReading = new Reading(rawReading);
-  const basicChargeAmount = aReading.calculateBaseCharge;
+  const basicChargeAmount = aReading.baseCharge;
   return basicChargeAmount;
 };
 
@@ -43,7 +43,7 @@ class Reading {
   get month() { return this._month; }
   get year() { return this._year; }
 
-  get calculateBaseCharge() {
+  get baseCharge() {
     return baseRate(this.month, this.year) * this.quantity;
   }
 }
