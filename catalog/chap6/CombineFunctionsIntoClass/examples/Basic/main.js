@@ -19,9 +19,9 @@ exports.client1 = function client1() {
 };
 
 exports.client2 = function client2() {
-  const aReading = acquireReading();
-  const base = (baseRate(aReading.month, aReading.year) * aReading.quantity);
-  const taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
+  const rawReading = acquireReading();
+  const aReading = new Reading(rawReading);
+  const taxableCharge = Math.max(0, aReading.baseCharge - taxThreshold(aReading.year));
   return taxableCharge;
 };
 
