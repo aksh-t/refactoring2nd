@@ -25,13 +25,10 @@ exports.client2 = function client2() {
 };
 
 exports.client3 = function clinet3() {
-  const aReading = acquireReading();
-  const basicChargeAmount = calculateBaseCharge(aReading);
+  const rawReading = acquireReading();
+  const aReading = new Reading(rawReading);
+  const basicChargeAmount = aReading.calculateBaseCharge;
   return basicChargeAmount;
-
-  function calculateBaseCharge(aReading) {
-    return baseRate(aReading.month, aReading.year) * aReading.quantity;
-  }
 };
 
 class Reading {
@@ -45,4 +42,8 @@ class Reading {
   get quantity() { return this._quantity; }
   get month() { return this._month; }
   get year() { return this._year; }
+
+  get calculateBaseCharge() {
+    return baseRate(this.month, this.year) * this.quantity;
+  }
 }
