@@ -1,6 +1,7 @@
 const expect = require('chai').expect;
 var _ = require('lodash');
 const { client1, client2, client3, enrichReading } = require('./main');
+const { assert } = require('chai');
 
 describe('client1', () => {
   it('', () => {
@@ -28,4 +29,11 @@ describe('enrichReading', () => {
     // 入力したReadingに派生情報が追加されて返ってくる
     expect(enrichReading(aReading)).to.deep.equal(expectedReading);
   });
+});
+
+describe('check reading unchanged', function () {
+  const baseReading = { customer: "ivan", quantity: 15, month: 5, year: 2017 };
+  const oracle = _.cloneDeep(baseReading);
+  enrichReading(baseReading);
+  assert.deepEqual(baseReading, oracle);
 });
