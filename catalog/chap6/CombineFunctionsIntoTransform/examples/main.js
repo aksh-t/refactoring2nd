@@ -30,7 +30,9 @@ exports.client2 = function client2() {
 };
 
 exports.client3 = function client3() {
-  const aReading = acquireReading();
+  const rawReading = acquireReading();
+  // CommonJSでexportすると、同じモジュール内でもexports経由じゃないと参照できないっぽい
+  const aReading = exports.enrichReading(rawReading);
   const basicChargeAmount = calculateBaseCharge(aReading);
   return basicChargeAmount;
 
@@ -42,4 +44,4 @@ exports.client3 = function client3() {
 exports.enrichReading = function enrichReading(original) {
   const result = _.cloneDeep(original);
   return result;
-}
+};
