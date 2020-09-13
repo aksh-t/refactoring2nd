@@ -11,5 +11,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^7.1.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
   }
 }
