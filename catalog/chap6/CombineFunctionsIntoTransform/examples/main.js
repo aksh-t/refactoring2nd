@@ -28,7 +28,7 @@ exports.client2 = function client2() {
   const rawReading = acquireReading();
   // CommonJSでexportすると、同じモジュール内でもexports経由じゃないと参照できないっぽい
   const aReading = exports.enrichReading(rawReading);
-  const taxableCharge = Math.max(0, aReading.baseCharge - taxThreshold(aReading.year));
+  const taxableCharge = aReading.taxableCharge;
   return taxableCharge;
 };
 
@@ -43,6 +43,7 @@ exports.client3 = function client3() {
 exports.enrichReading = function enrichReading(original) {
   const result = _.cloneDeep(original);
   result.baseCharge = calculateBaseCharge(result);
+  result.taxableCharge = Math.max(0, result.baseCharge - taxThreshold(result.year));
   return result;
 
   function calculateBaseCharge(aReading) {

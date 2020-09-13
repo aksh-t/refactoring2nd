@@ -26,6 +26,8 @@ describe('enrichReading', () => {
     const aReading = { customer: "ivan", quantity: 10, month: 5, year: 2017 };
     const expectedReading = _.cloneDeep(aReading);
     expectedReading.baseCharge = 20;
+    expectedReading.taxableCharge = 10;
+
     // 入力したReadingに派生情報が追加されて返ってくる
     expect(enrichReading(aReading)).to.deep.equal(expectedReading);
   });
