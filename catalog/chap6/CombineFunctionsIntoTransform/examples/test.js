@@ -1,4 +1,5 @@
 const expect = require('chai').expect;
+var _ = require('lodash');
 const { client1, client2, client3, enrichReading } = require('./main');
 
 describe('client1', () => {
@@ -22,7 +23,9 @@ describe('client3', () => {
 describe('enrichReading', () => {
   it('', () => {
     const aReading = { customer: "ivan", quantity: 10, month: 5, year: 2017 };
-    // 入力したReadingのディープコピーが返ってくる
-    expect(enrichReading(aReading)).to.deep.equal(aReading);
+    const expectedReading = _.cloneDeep(aReading);
+    expectedReading.baseCharge = 20;
+    // 入力したReadingに派生情報が追加されて返ってくる
+    expect(enrichReading(aReading)).to.deep.equal(expectedReading);
   });
 });
