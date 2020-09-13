@@ -25,7 +25,9 @@ exports.client1 = function client1() {
 };
 
 exports.client2 = function client2() {
-  const aReading = acquireReading();
+  const rawReading = acquireReading();
+  // CommonJSでexportすると、同じモジュール内でもexports経由じゃないと参照できないっぽい
+  const aReading = exports.enrichReading(rawReading);
   const base = (baseRate(aReading.month, aReading.year) * aReading.quantity);
   const taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
   return taxableCharge;
