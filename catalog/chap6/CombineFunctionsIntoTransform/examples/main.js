@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 // 適当な値を返す関数を用意
 function acquireReading() {
   const reading = { customer: "ivan", quantity: 10, month: 5, year: 2017 };
