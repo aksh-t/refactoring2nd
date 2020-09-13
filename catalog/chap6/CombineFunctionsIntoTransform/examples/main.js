@@ -38,3 +38,8 @@ exports.client3 = function client3() {
     return baseRate(aReading.month, aReading.year) * aReading.quantity;
   }
 };
+
+exports.enrichReading = function enrichReading(original) {
+  const result = _.cloneDeep(original);
+  return result;
+}
