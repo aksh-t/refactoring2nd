@@ -5,7 +5,7 @@
 
 # テストの実行の仕方
 1. ターミナルで `./catalog` まで移動する
-2. `npm run test [テストが書かれたJSファイルのパス]` を実行する
+2. `npm run test [テストが書かれたJSファイルの相対パス]` を実行する
   - 例: `npm run test ./chap6/CombineFunctionsIntoTransform/examples/test.js`
 
 
