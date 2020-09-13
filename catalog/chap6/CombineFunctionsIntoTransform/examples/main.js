@@ -17,8 +17,10 @@ function taxThreshold(year) {
 }
 
 exports.client1 = function client1() {
-  const aReading = acquireReading();
-  const baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity;
+  const rawReading = acquireReading();
+  // CommonJSでexportすると、同じモジュール内でもexports経由じゃないと参照できないっぽい
+  const aReading = exports.enrichReading(rawReading);
+  const baseCharge = aReading.baseCharge;
   return baseCharge;
 };
 
