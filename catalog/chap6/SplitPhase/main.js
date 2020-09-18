@@ -9,6 +9,10 @@ exports.priceOrder = function priceOrder(product, quantity, shippingMethod) {
   return price;
 };
 
+function calculatePricingData() {
+
+}
+
 // テキストでは `送料の計算` と書いてあるが、実際やっているのは `注文の合計料金の計算` では？
 function applyShipping(priceData, shippingMethod) {
   const shippingPerCase = (priceData.basePrice > shippingMethod.discountThreshold)
