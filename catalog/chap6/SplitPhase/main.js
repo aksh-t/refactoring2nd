@@ -3,17 +3,17 @@ exports.priceOrder = function priceOrder(product, quantity, shippingMethod) {
   const discount = Math.max(quantity - product.discountThreshold, 0)
     * product.basePrice * product.discountRate;
 
-  const priceData = {};
+  const priceData = { basePrice: basePrice };
 
-  const price = applyShipping(priceData, basePrice, shippingMethod, quantity, discount);
+  const price = applyShipping(priceData, shippingMethod, quantity, discount);
   return price;
 };
 
 // テキストでは `送料の計算` と書いてあるが、実際やっているのは `注文の合計料金の計算` では？
-function applyShipping(priceData, basePrice, shippingMethod, quantity, discount) {
-  const shippingPerCase = (basePrice > shippingMethod.discountThreshold)
+function applyShipping(priceData, shippingMethod, quantity, discount) {
+  const shippingPerCase = (priceData.basePrice > shippingMethod.discountThreshold)
     ? shippingMethod.discountedFee : shippingMethod.feePerCase;
   const shippingCost = quantity * shippingPerCase;
-  const price = basePrice - discount + shippingCost;
+  const price = priceData.basePrice - discount + shippingCost;
   return price;
 }
