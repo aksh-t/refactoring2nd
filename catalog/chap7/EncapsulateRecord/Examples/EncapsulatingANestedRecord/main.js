@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 const rawCustomerData = {
   "1920": {
     name: "martin",
@@ -22,6 +24,10 @@ const rawCustomerData = {
 class CustomerData {
   constructor(data) {
     this._data = data;
+  }
+
+  get rawData() {
+    return _.cloneDeep(this._data);
   }
 
   setUsage(customerID, year, month, amount) {
