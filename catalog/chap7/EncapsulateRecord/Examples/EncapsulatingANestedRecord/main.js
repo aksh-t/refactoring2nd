@@ -39,7 +39,7 @@ class CustomerData {
 let customerData;
 
 function getCustomerData() { return customerData; }
-function getRawDataOfCustomers() { return customerData._data; }
+function getRawDataOfCustomers() { return customerData.rawData; }
 function setRawDataOfCustomers(arg) { customerData = new CustomerData(arg); }
 
 // たぶんこんな感じで、CustomerDataクラスを初期化することを、期待していると思われる
