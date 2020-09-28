@@ -1,9 +1,12 @@
 class Organization {
   constructor(data) {
-    this._data = data;
+    this._name = data.name;
+    this._countory = data.country;
   }
-  get name() { return this._data.name; }
-  set name(aString) { this._data.name = aString; }
+  get name() { return this._name; }
+  set name(aString) { this._name = aString; }
+  get country() { return this._country; }
+  set countory(aCountryCode) { this._countory = aCountryCode; }
 }
 
 const organization = new Organization({ name: "Acme Gooseberries", country: "GB" });
