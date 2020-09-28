@@ -2,6 +2,7 @@ class Organization {
   constructor(data) {
     this._data = data;
   }
+  set name(aString) { this._data.name = aString; }
 }
 
 const organization = new Organization({ name: "Acme Gooseberries", country: "GB" });
@@ -19,7 +20,7 @@ function H1() {
 };
 
 function updateName(newName) {
-  getRawDataOfOrganization().name = newName;
+  getOrganization().name = newName;
 };
 
 exports.organization = organization;
