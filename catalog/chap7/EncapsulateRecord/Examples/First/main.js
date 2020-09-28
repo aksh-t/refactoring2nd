@@ -1,11 +1,14 @@
 const organization = { name: "Acme Gooseberries", country: "GB" };
-exports.organization = organization;
 
-exports.H1 = function H1() {
+function H1() {
   const result = `<h1>${organization.name}</h1>`;
   return result;
 };
 
-exports.updateName = function updateName(newName) {
+function updateName(newName) {
   organization.name = newName;
 };
+
+exports.organization = organization;
+exports.H1 = H1;
+exports.updateName = updateName;
