@@ -15,6 +15,6 @@ describe('update', () => {
   it('', () => {
     const [customerID, year, month, amount] = ["1920", "2016", "1", 100];
     update(customerID, year, month, amount);
-    expect(customerData[customerID].usages[year][month]).to.equal(amount);
+    expect(customerData._data[customerID].usages[year][month]).to.equal(amount);
   });
 });

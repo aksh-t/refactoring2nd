@@ -1,4 +1,4 @@
-const customerData = {
+const rawCustomerData = {
   "1920": {
     name: "martin",
     id: "1920",
@@ -25,9 +25,15 @@ class CustomerData {
   }
 }
 
+// customerDataがletで宣言されていることを期待してるっぽい
+let customerData;
+
 function getCustomerData() { return customerData; }
 function getRawDataOfCustomers() { return customerData._data; }
 function setRawDataOfCustomers(arg) { customerData = new CustomerData(arg); }
+
+// たぶんこんな感じで、CustomerDataクラスを初期化することを、期待していると思われる
+setRawDataOfCustomers(rawCustomerData);
 
 function update(customerID, year, month, amount) {
   getRawDataOfCustomers()[customerID].usages[year][month] = amount;
