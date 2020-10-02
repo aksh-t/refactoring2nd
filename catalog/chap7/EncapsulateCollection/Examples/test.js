@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { Person, Course, client } = require('./main');
+const { Person, Course, client, clientCode2 } = require('./main');
 
 
 function createPerson() {
@@ -20,5 +20,17 @@ describe('client', () => {
     const aPerson = createPerson();
     const numAdvancedCourses = client(aPerson);
     expect(numAdvancedCourses).to.equal(1);
+  });
+});
+
+describe("clientCode2", () => {
+  it('aPersonのcoursesが更新されることを確認', () => {
+    const aPerson = createPerson();
+    // 実際のファイル読み出しは端折っているので、ファイル名はなんでも良い
+    clientCode2(aPerson, "hoge.txt");
+    expect(aPerson.courses).to.deep.equal([
+      new Course("Biology", false),
+      new Course("Art", false)
+    ]);
   });
 });
