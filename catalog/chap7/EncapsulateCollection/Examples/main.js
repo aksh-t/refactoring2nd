@@ -52,7 +52,7 @@ function clientCode2(aPerson, filename) {
 
 function clientCode3(aPerson, filename) {
   for (const name of readBasicCourseNames(filename)) {
-    aPerson.courses.push(new Course(name, false));
+    aPerson.addCourse(new Course(name, false));
   }
 }
 
