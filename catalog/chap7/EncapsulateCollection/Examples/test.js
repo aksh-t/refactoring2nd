@@ -1,4 +1,5 @@
 const expect = require('chai').expect;
+const _ = require('lodash');
 const {
   Person, Course, client, clientCode2, clientCode3
 } = require('./main');
@@ -48,5 +49,54 @@ describe("clientCode3", () => {
       new Course("Biology", false),
       new Course("Art", false)
     ]);
+  });
+});
+
+describe("Person", () => {
+  it('addCourse', () => {
+    const aPerson = createPerson();
+    // 後で検証に使うので、ディープコピーしておく
+    const beforeCourses = _.cloneDeep(aPerson.courses);
+
+    aPerson.addCourse(new Course("Music", true));
+    expect(aPerson.courses).to.deep.equal(
+      beforeCourses.concat(new Course("Music", true))
+    );
+  });
+
+  it('removeCourse', () => {
+    const aPerson = createPerson();
+    // 後で検証に使うので、ディープコピーしておく
+    const beforeCourses = _.cloneDeep(aPerson.courses);
+
+    const deleteTargetCourse = aPerson.courses[0];
+    aPerson.removeCourse(deleteTargetCourse);
+    // カプセル化のテストにしては、安易にdeepな比較をしすぎな気がする...
+    // ちゃんとカプセル化できてるかの確認として、不適切かも？
+    expect(aPerson.courses).to.deep.equal(
+      beforeCourses.filter(c => !_.isEqual(c, deleteTargetCourse))
+    );
+  });
+
+  it('removeCourseで存在しないコースを削除しようとすると例外がthrowされるテスト', () => {
+    const aPerson = createPerson();
+
+    expect(() => {
+      aPerson.removeCourse(new Course("Psychology", false));
+    }).to.throw(RangeError);
+  });
+
+  it('removeCourseで存在しないコースを削除しようとしたときの振る舞いを外から指定するテスト', () => {
+    const aPerson = createPerson();
+
+    // 何もしない関数を用意する
+    const fnIfAbsent = () => { };
+
+    expect(() => {
+      aPerson.removeCourse(
+        new Course("Psychology", false),
+        fnIfAbsent
+      );
+    }).to.not.throw();
   });
 });
