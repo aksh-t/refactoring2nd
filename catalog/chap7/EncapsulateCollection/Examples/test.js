@@ -1,5 +1,7 @@
 const expect = require('chai').expect;
-const { Person, Course, client, clientCode2 } = require('./main');
+const {
+  Person, Course, client, clientCode2, clientCode3
+} = require('./main');
 
 
 function createPerson() {
@@ -29,6 +31,20 @@ describe("clientCode2", () => {
     // 実際のファイル読み出しは端折っているので、ファイル名はなんでも良い
     clientCode2(aPerson, "hoge.txt");
     expect(aPerson.courses).to.deep.equal([
+      new Course("Biology", false),
+      new Course("Art", false)
+    ]);
+  });
+});
+
+describe("clientCode3", () => {
+  it('setterを使わなくても、aPersonのcoursesが更新できてしまうことを確認', () => {
+    const aPerson = createPerson();
+    // 実際のファイル読み出しは端折っているので、ファイル名はなんでも良い
+    clientCode3(aPerson, "hoge.txt");
+    expect(aPerson.courses).to.deep.equal([
+      new Course("English", false),
+      new Course("Science", true),
       new Course("Biology", false),
       new Course("Art", false)
     ]);

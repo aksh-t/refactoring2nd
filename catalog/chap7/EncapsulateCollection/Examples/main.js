@@ -37,7 +37,14 @@ function clientCode2(aPerson, filename) {
   );
 }
 
+function clientCode3(aPerson, filename) {
+  for (const name of readBasicCourseNames(filename)) {
+    aPerson.courses.push(new Course(name, false));
+  }
+}
+
 exports.Person = Person;
 exports.Course = Course;
 exports.client = client;
 exports.clientCode2 = clientCode2;
+exports.clientCode3 = clientCode3;
