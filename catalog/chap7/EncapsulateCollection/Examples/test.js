@@ -99,6 +99,32 @@ describe("Person", () => {
       );
     }).to.not.throw();
   });
+
+  describe('カプセル化のテスト', () => {
+    it('get courses', () => {
+      const aPerson = createPerson();
+
+      const courses = aPerson.courses;
+      // 検証用にdeep copyをとっておく
+      const originalCourses = _.cloneDeep(aPerson.courses);
+
+      // getterを通して取得したcoursesに直接変更を加える
+      courses.push(new Course("new", false));
+      // 取得したcoursesを直接変更されても、元のPersonオブジェクトには影響がないことを確認する
+      expect(aPerson.courses).to.deep.equal(originalCourses);
+    });
+
+    it('set courses', () => {
+      const aPerson = createPerson();
+      const newCourses = [new Course("new1", false), new Course("new2", false)];
+
+      aPerson.courses = newCourses;
+      // 検証用にdeep copyをとっておく
+      const originalCourses = _.cloneDeep(aPerson.courses);
+      // aPerson.coursesにsetした後、newCoursesを変更する
+      newCourses.push(new Course("new3", false));
+
+      expect(aPerson.courses).to.deep.equal(originalCourses);
+    });
+  });
 });
-// TODO: 全体的に正しくカプセル化できているかのテストが足りてない気がする
-//       時間があったらもう少しテストを拡充させる
