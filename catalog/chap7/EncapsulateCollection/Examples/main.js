@@ -4,10 +4,10 @@ class Person {
     this._courses = [];
   }
   get name() { return this._name; }
-  get courses() { return this._courses.slice(); }
+  get courses() { return this._courses; }
   // addCourseがあれば不要なので、「setterの削除」を適用してもいいが、
   // ここではコピーを代入するようにする方法を適用する
-  set courses(aList) { this._courses = aList.slice(); }
+  set courses(aList) { this._courses = aList; }
 
   addCourse(aCourse) {
     this._courses.push(aCourse);
