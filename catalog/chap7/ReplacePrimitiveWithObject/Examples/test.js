@@ -29,4 +29,32 @@ describe('Priority', () => {
       // FIXME: messageまで検証しようと思ったらどうすればいいんだろう？
     });
   });
+  describe('equals', () => {
+    it('equals', () => {
+      const priority = new Priority("high");
+      const other = new Priority("high");
+      expect(priority.equals(other)).to.true;
+    });
+    it('not equals', () => {
+      const priority = new Priority("high");
+      const other = new Priority("normal");
+      expect(priority.equals(other)).to.false;
+    });
+  });
+  describe('higherThan', () => {
+    it('higher', () => {
+      expect(new Priority("rush").higherThan(new Priority("low"))).to.true;
+    });
+    it('not higher', () => {
+      expect(new Priority("rush").higherThan(new Priority("rush"))).to.false;
+    });
+  });
+  describe('lowerThan', () => {
+    it('lower', () => {
+      expect(new Priority("low").lowerThan(new Priority("normal"))).to.true;
+    });
+    it('not lower', () => {
+      expect(new Priority("low").lowerThan(new Priority("low"))).to.false;
+    });
+  });
 });;
