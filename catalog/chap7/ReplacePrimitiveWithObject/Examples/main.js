@@ -4,7 +4,7 @@ class Order {
     // 初期化が続く
   }
 
-  get priority() { return this._priority.toString(); }
+  get priorityString() { return this._priority.toString(); }
   set priority(aString) { this._priority = new Priority(aString); }
 }
 
@@ -16,7 +16,8 @@ class Priority {
 // Orderクラスを利用する側のコード（クライアントコード）
 function getHighPriorityCount(orders) {
   highPriorityCount = orders.filter(
-    o => "high" === o.priority || "rush" === o.priority
+    o => "high" === o.priorityString
+      || "rush" === o.priorityString
   ).length;
   return highPriorityCount;
 }
