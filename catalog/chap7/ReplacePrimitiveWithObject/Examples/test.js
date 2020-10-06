@@ -18,4 +18,6 @@ describe('getHighPriorityCount', () => {
   });
 });
 
+// Priorityクラスのテストは一旦書かないでおく
+// TODO: 必要そうなら後で追加する
 
