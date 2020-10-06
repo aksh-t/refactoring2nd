@@ -17,8 +17,8 @@ class Priority {
 // Orderクラスを利用する側のコード（クライアントコード）
 function getHighPriorityCount(orders) {
   highPriorityCount = orders.filter(
-    o => "high" === o.priorityString
-      || "rush" === o.priorityString
+    o => "high" === o.priority.toString()
+      || "rush" === o.priority.toString()
   ).length;
   return highPriorityCount;
 }
