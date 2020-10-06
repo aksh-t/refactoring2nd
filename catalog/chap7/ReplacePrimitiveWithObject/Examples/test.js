@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { Order, getHighPriorityCount } = require('./main');
+const { Order, Priority, getHighPriorityCount } = require('./main');
 
 
 // 適当なOrderオブジェクトの配列を作成して返す
@@ -18,6 +18,15 @@ describe('getHighPriorityCount', () => {
   });
 });
 
-// Priorityクラスのテストは一旦書かないでおく
-// TODO: 必要そうなら後で追加する
-
+describe('Priority', () => {
+  describe('constructor', () => {
+    it('valid value', () => {
+      expect(() => new Priority('normal')).to.not.throw();
+      // Priorityオブジェクトが正しく生成されることを確認するべきな気がする
+    });
+    it('invalid value', () => {
+      expect(() => new Priority('invalid')).to.throw(Error);
+      // FIXME: messageまで検証しようと思ったらどうすればいいんだろう？
+    });
+  });
+});;
