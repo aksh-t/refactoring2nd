@@ -5,7 +5,7 @@ class Order {
   }
 
   get price() {
-    var basePrice = this._quantity * this._item.price;
+    const basePrice = this._quantity * this._item.price;
     var discountFactor = 0.98;
     if (basePrice > 1000) discountFactor -= 0.03;
     return basePrice * discountFactor;
