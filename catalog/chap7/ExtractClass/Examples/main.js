@@ -13,4 +13,7 @@ class Person {
   set officeNumber(arg) { this._officeNumber = arg; }
 }
 
+class TelephoneNumber {
+}
+
 exports.Person = Person;
