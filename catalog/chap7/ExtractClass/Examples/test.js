@@ -9,6 +9,8 @@ function createPerosn() {
   return new Person(getPersonData());
 }
 
+// フィールドの移動を施しても、外から見た振る舞いは変わらないので、
+// テストを変更する必要はない
 describe('Person', () => {
   it('create instance', () => {
     // コンストラクタの動きをテストする意図を伝えるため、
