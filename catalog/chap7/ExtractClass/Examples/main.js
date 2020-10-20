@@ -3,6 +3,7 @@ class Person {
     this._name = data.name;
     this._officeAreaCode = data.officeAreaCode;
     this._officeNumber = data.officeNumber;
+    this._telephoneNumber = new TelephoneNumber();
   }
   get name() { return this._name; }
   set name(arg) { this._name = arg; }
@@ -17,3 +18,4 @@ class TelephoneNumber {
 }
 
 exports.Person = Person;
+exports.TelephoneNumber = TelephoneNumber;

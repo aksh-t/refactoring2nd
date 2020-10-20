@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { Person } = require('./main');
+const { Person, TelephoneNumber } = require('./main');
 
 function getPersonData() {
   return { name: "Martin", officeAreaCode: "03", officeNumber: "12345678" };
@@ -38,5 +38,9 @@ describe('Person', () => {
       aPerson.officeNumber = '23456789';
       expect(aPerson.officeNumber).to.equal("23456789");
     });
+  });
+  it('has TelephoneNumber instance', () => {
+    const aPerson = createPerosn();
+    expect(aPerson._telephoneNumber).to.be.an.instanceof(TelephoneNumber);
   });
 });
