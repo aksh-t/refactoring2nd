@@ -22,7 +22,6 @@ describe('caller', () => {
 
     // TrackingInformation のメソッドを呼んでいる箇所
     aShipment.shippingCompany = request.vendor;
-    expect(aShipment.trackingInformation.shippingCompany).to
-      .equal('Fuga International Trade');
+    expect(aShipment.shippingCompany).to.equal('Fuga International Trade');
   });
 });
