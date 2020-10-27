@@ -26,3 +26,6 @@ class Shipment {
     this._trackingInformation = aTrackingInformation;
   }
 }
+
+exports.Shipment = Shipment;
+exports.TrackingInformation = TrackingInformation;
