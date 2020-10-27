@@ -3,8 +3,6 @@ const _ = require('lodash');
 class Person {
   constructor(data) {
     this._name = data.name;
-    this._officeAreaCode = data.officeAreaCode;
-    this._officeNumber = data.officeNumber;
 
     this._telephoneNumber = new TelephoneNumber(
       _.pick(data, ['officeAreaCode', 'officeNumber'])
