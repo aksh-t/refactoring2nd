@@ -21,7 +21,7 @@ describe('caller', () => {
     const request = { vendor: 'Fuga International Trade' };
 
     // TrackingInformation のメソッドを呼んでいる箇所
-    aShipment.trackingInformation.shippingCompany = request.vendor;
+    aShipment.shippingCompany = request.vendor;
     expect(aShipment.trackingInformation.shippingCompany).to
       .equal('Fuga International Trade');
   });
