@@ -1,10 +1,7 @@
 class TrackingInformation {
   // テキストにはコンストラクタは書いてないので、自分で仕様を決めて実装した
   constructor(data) {
-    this._trackingNumber = data.trackingNumber;
   }
-  get trackingNumber() { return this._trackingNumber; }
-  set trackingNumber(arg) { this._trackingNumber = arg; }
 }
 
 class Shipment {
@@ -12,6 +9,7 @@ class Shipment {
   constructor(data) {
     this._trackingInformation = new TrackingInformation(data);
     this._shippingCompany = data.shippingCompany;
+    this._trackingNumber = data.trackingNumber;
   }
   get trackingInfo() {
     return `${this.shippingCompany}: ${this.trackingNumber}`;
@@ -22,12 +20,8 @@ class Shipment {
   }
   get shippingCompany() { return this._shippingCompany; }
   set shippingCompany(arg) { this._shippingCompany = arg; }
-  get trackingNumber() {
-    return this._trackingInformation.trackingNumber;
-  }
-  set trackingNumber(arg) {
-    this._trackingInformation.trackingNumber = arg;
-  }
+  get trackingNumber() { return this._trackingNumber; }
+  set trackingNumber(arg) { this._trackingNumber = arg; }
 }
 
 exports.Shipment = Shipment;
