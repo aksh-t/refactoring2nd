@@ -13,3 +13,6 @@ class Department {
   get manager() { return this._manager; }
   set manager(arg) { this._manager = arg; }
 }
+
+exports.Person = Person;
+exports.Department = Department;
