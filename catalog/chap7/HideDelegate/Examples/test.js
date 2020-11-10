@@ -9,7 +9,7 @@ describe('', () => {
     aDepartment.manager = "Bob";
     aPerson.department = aDepartment;
 
-    const manager = aPerson.department.manager;
+    const manager = aPerson.manager;
     expect(manager).to.equal("Bob");
   });
 });
