@@ -12,3 +12,5 @@ class Department {
   get manager() { return this._manager; }
 }
 
+exports.Person = Person;
+exports.Department = Department;
