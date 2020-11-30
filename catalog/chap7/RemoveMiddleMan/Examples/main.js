@@ -2,7 +2,6 @@ class Person {
   constructor(data) {
     this._department = new Department(data.department);
   }
-  get manager() { return this._department.manager; }
   get department() { return this._department; }
 }
 
