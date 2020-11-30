@@ -12,7 +12,7 @@ describe('', () => {
     };
     const aPerson = new Person(data);
 
-    const manager = aPerson.manager;
+    const manager = aPerson.department.manager;
     expect(manager).to.deep.equal({ name: "Martin" });
 
   });
