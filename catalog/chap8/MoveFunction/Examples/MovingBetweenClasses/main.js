@@ -17,15 +17,7 @@ class Account {
   }
 
   get overdraftCharge() {
-    if (this.type.isPremium) {
-      const baseCharege = 10;
-      if (this.daysOverdrawn <= 7)
-        return baseCharege;
-      else
-        return baseCharege + (this.daysOverdrawn - 7) * 0.85;
-    }
-    else
-      return this.daysOverdrawn * 1.75;
+    return this.type.overdraftCharge(this.daysOverdrawn);
   }
 }
 
