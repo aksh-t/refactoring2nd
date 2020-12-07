@@ -39,6 +39,18 @@ class AccountType {
   get isPremium() {
     return this.code === "09";
   }
+
+  overdraftCharge(daysOverdrawn) {
+    if (this.isPremium) {
+      const baseCharege = 10;
+      if (daysOverdrawn <= 7)
+        return baseCharege;
+      else
+        return baseCharege + (daysOverdrawn - 7) * 0.85;
+    }
+    else
+      return daysOverdrawn * 1.75;
+  }
 }
 
 exports.Account = Account;
