@@ -12,7 +12,7 @@ class Account {
 
   get bankCharge() {
     let result = 4.5;
-    if (this._daysOverdrawn > 0) result += this.type.overdraftCharge(this.daysOverdrawn);
+    if (this._daysOverdrawn > 0) result += this.type.overdraftCharge(this);
     return result;
   }
 }
@@ -28,16 +28,16 @@ class AccountType {
     return this.code === "09";
   }
 
-  overdraftCharge(daysOverdrawn) {
+  overdraftCharge(account) {
     if (this.isPremium) {
       const baseCharege = 10;
-      if (daysOverdrawn <= 7)
+      if (account.daysOverdrawn <= 7)
         return baseCharege;
       else
-        return baseCharege + (daysOverdrawn - 7) * 0.85;
+        return baseCharege + (account.daysOverdrawn - 7) * 0.85;
     }
     else
-      return daysOverdrawn * 1.75;
+      return account.daysOverdrawn * 1.75;
   }
 }
 
