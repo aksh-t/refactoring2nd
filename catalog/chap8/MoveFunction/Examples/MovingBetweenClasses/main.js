@@ -40,3 +40,5 @@ class AccountType {
     return this.code === "09";
   }
 }
+
+exports.Account = Account;
